@@ -1,0 +1,24 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Login{% endblock title %}
+{% block main-content %}
+<div class="container">
+ <div class="row my-3">
+  <div class="col-sm-6 offset-sm-3">
+   <h3>Login</h3>
+   <hr>
+   <form action="" , method='POST'  novalidate class="shadow p-5">
+    {% csrf_token %}
+       {% for fb in form %}
+        <div class="form-group mb-3">
+        {{fb.label_tag}} <br>{{fb}} <small class="text-danger">{{fb.errors|striptags}}</small>
+        </div>
+       {% endfor %}
+       <input type="submit" value="Submit" class="btn btn-secondary">
+       <div class="text-center text-primary fw-bold"><small>Existing User ? <a href="{% url 'customerregistration'%}" class="text-danger">Registration Now</a> </small></div>
+
+    </form>
+  </div>
+ </div>
+</div>
+{% endblock main-content %}
